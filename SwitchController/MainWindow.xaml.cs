@@ -466,7 +466,8 @@ public partial class MainWindow : Window
                     ? $"Switch | 已连接成功 | {id}"
                     : "Switch | 已连接成功 | 未启动游戏";
             });
-            await SetScreen(ScreenState.Off).ConfigureAwait(false);
+            if (Settings.Default.AutoScreenOff)
+                await SetScreen(ScreenState.Off).ConfigureAwait(false);
             // 操作预览
             StartScreenStream();
             // 持续预览
