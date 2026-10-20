@@ -49,17 +49,17 @@ public partial class SettingsWindow : Window
         // 简单校验
         if (!Regex.IsMatch(ip, @"^(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)$"))
         {
-            MessageBox.Show("IP 地址格式不正确。", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+            MessageBox.Show("Invalid IP address.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             return false;
         }
         if (!int.TryParse(port, out int p) || p <= 0 || p > 65535)
         {
-            MessageBox.Show("端口必须是 1~65535 的整数。", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+            MessageBox.Show("Port must be an integer from 1 to 65535.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             return false;
         }
         if (!int.TryParse(rtspPort, out int rp) || rp <= 0 || rp > 65535)
         {
-            MessageBox.Show("RTSP端口必须是 1~65535 的整数。", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+            MessageBox.Show("RTSP port must be an integer from 1 to 65535.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             return false;
         }
 

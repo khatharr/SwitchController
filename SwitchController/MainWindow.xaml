@@ -357,17 +357,17 @@
                         <DockPanel Grid.Row="0" LastChildFill="True" Margin="16,12">
                             <TextBlock Text="Switch Controller" FontSize="22" FontWeight="Bold" Foreground="{StaticResource BrushText}"/>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Margin="8,0,0,0">
-                                <Button x:Name="btnMinimize" Content="—" Width="36" Height="28" Style="{StaticResource BaseButton}" Padding="0" FontSize="16" ToolTip="最小化" Click="btnMinimize_Click"/>
-                                <Button x:Name="btnClose" Content="×" Width="36" Height="28" Style="{StaticResource AccentButtonRed}" Padding="0" FontSize="16" ToolTip="关闭" Click="btnClose_Click" Margin="6,0,0,0"/>
+                                <Button x:Name="btnMinimize" Content="—" Width="36" Height="28" Style="{StaticResource BaseButton}" Padding="0" FontSize="16" ToolTip="Minimize" Click="btnMinimize_Click"/>
+                                <Button x:Name="btnClose" Content="×" Width="36" Height="28" Style="{StaticResource AccentButtonRed}" Padding="0" FontSize="16" ToolTip="Close" Click="btnClose_Click" Margin="6,0,0,0"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Margin="8,0,0,0">
-                                <Button x:Name="btnCapture" IsEnabled="False"  Content="保存截图" Style="{StaticResource AccentButtonBlue}" Width="110" Margin="80,0" Click="btnCapture_Click"/>
+                                <Button x:Name="btnCapture" IsEnabled="False"  Content="Save Image" Style="{StaticResource AccentButtonBlue}" Width="110" Margin="80,0" Click="btnCapture_Click"/>
                                 <TextBox x:Name="txtIpAddress"
                                          Style="{StaticResource IPTextBox}"
                                          Width="170"
                                          Margin="8,0"
                                          TextAlignment="Center"
-                                         ToolTip="IP 地址，如 192.168.0.0"
+                                         ToolTip="Switch IP address, e.g. 192.168.0.0"
                                          Text="192.168.0.0"
                                          TextChanged="txtIpAddress_TextChanged"/>
                                 <TextBox x:Name="txtPort"
@@ -375,10 +375,10 @@
                                          Width="100"
                                          Margin="0,0,8,0"
                                          TextAlignment="Center"
-                                         ToolTip="端口，如 6000"
+                                         ToolTip="Port, e.g. 6000"
                                          Text="6000"
                                          TextChanged="txtPort_TextChanged"/>
-                                <Button x:Name="btnSettings" Content="设置" Style="{StaticResource AccentButtonRed}" Width="110" Margin="100,0" Click="btnSettings_Click"/>
+                                <Button x:Name="btnSettings" Content="Settings" Style="{StaticResource AccentButtonRed}" Width="110" Margin="100,0" Click="btnSettings_Click"/>
                             </StackPanel>
                         </DockPanel>
 
@@ -414,7 +414,7 @@
                                         Style="{StaticResource ShoulderButton}"
                                         BorderBrush="{StaticResource JoyBlue}"
                                         Width="80" Height="30" FontSize="14"
-                                        ToolTip="左前肩键 ZL"
+                                        ToolTip="ZL button"
                                         Margin="0,0,10,0"
                                         PreviewMouseLeftButtonDown="Btn_PreviewMouseLeftButtonDown"
                                         PreviewMouseLeftButtonUp="Btn_PreviewMouseLeftButtonUp"/>
@@ -424,7 +424,7 @@
                                         Style="{StaticResource ShoulderButton}"
                                         BorderBrush="{StaticResource JoyBlue}"
                                         Width="80" Height="30" FontSize="14"
-                                        ToolTip="左肩键 L"
+                                        ToolTip="L button"
                                         Margin="0,0,10,0"
                                         PreviewMouseLeftButtonDown="Btn_PreviewMouseLeftButtonDown"
                                         PreviewMouseLeftButtonUp="Btn_PreviewMouseLeftButtonUp"/>
@@ -433,7 +433,7 @@
                                         Content="–"
                                         Style="{StaticResource AccentButtonBlue}"
                                         Width="40" Height="30" FontSize="16"
-                                        ToolTip="Minus 键"
+                                        ToolTip="Minus button"
                                         PreviewMouseLeftButtonDown="Btn_PreviewMouseLeftButtonDown"
                                         PreviewMouseLeftButtonUp="Btn_PreviewMouseLeftButtonUp"/>
                             </StackPanel>
@@ -573,7 +573,7 @@
                             <Button x:Name="btnCaptureLeft"
                                     Width="40"
                                     Height="40"
-                                    ToolTip="Capture 截图键"
+                                    ToolTip="Capture button"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Top"
                                     Margin="0,355,16,0"
@@ -615,7 +615,7 @@
                             </Viewbox>
 
                             <StackPanel Grid.Row="1" Orientation="Vertical" Margin="0,16,0,0">
-                                <TextBlock x:Name ="txtLog" Text="等待连接..."
+                                <TextBlock x:Name ="txtLog" Text="Waiting to connect..."
                                            FontSize="16"
                                            TextAlignment="Center"
                                            Foreground="{StaticResource BrushSubtle}"
@@ -639,7 +639,7 @@
                                         Content="+"
                                         Style="{StaticResource AccentButtonRed}"
                                         Width="40" Height="30" FontSize="16"
-                                        ToolTip="Plus 键"
+                                        ToolTip="Plus button"
                                         Margin="0,0,10,0"
                                         PreviewMouseLeftButtonDown="Btn_PreviewMouseLeftButtonDown"
                                         PreviewMouseLeftButtonUp="Btn_PreviewMouseLeftButtonUp"/>
@@ -649,7 +649,7 @@
                                         Style="{StaticResource ShoulderButton}"
                                         BorderBrush="{StaticResource JoyRed}"
                                         Width="80" Height="30" FontSize="14"
-                                        ToolTip="右肩键 R"
+                                        ToolTip="R button"
                                         Margin="0,0,10,0"
                                         PreviewMouseLeftButtonDown="Btn_PreviewMouseLeftButtonDown"
                                         PreviewMouseLeftButtonUp="Btn_PreviewMouseLeftButtonUp"/>
@@ -659,7 +659,7 @@
                                         Style="{StaticResource ShoulderButton}"
                                         BorderBrush="{StaticResource JoyRed}"
                                         Width="80" Height="30" FontSize="14"
-                                        ToolTip="右前肩键 ZR"
+                                        ToolTip="ZR button"
                                         PreviewMouseLeftButtonDown="Btn_PreviewMouseLeftButtonDown"
                                         PreviewMouseLeftButtonUp="Btn_PreviewMouseLeftButtonUp"/>
                             </StackPanel>
@@ -802,7 +802,7 @@
                             <Button x:Name="btnHome"
                                     Width="40"
                                     Height="40"
-                                    ToolTip="Home 键"
+                                    ToolTip="HOME button"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Top"
                                     Margin="16,355,0,0"
@@ -841,7 +841,7 @@
                                     VerticalAlignment="Center">
                                 <Button x:Name="btnStartStream"
                                         Style="{StaticResource AccentButtonBlue}"
-                                        Content="开始连接"
+                                        Content="Connect"
                                         Margin="0,0,8,0"
                                         Padding="20,10"
                                         Height="36"
@@ -856,7 +856,7 @@
                                         Margin="150,0,0,0">
                                 <Button x:Name="btnScreenSwitch"
                                         Style="{StaticResource AccentButtonBlue}"
-                                        Content="关闭屏幕"
+                                        Content="Turn Screen Off"
                                         IsEnabled="False"
                                         Margin="0,0,8,0"
                                         Padding="20,10"
@@ -869,7 +869,7 @@
                             <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center">
-                                <TextBlock Text="连接状态:"
+                                <TextBlock Text="Connection:"
                                        Foreground="{StaticResource BrushSubtle}"
                                        VerticalAlignment="Center"
                                        Margin="0,0,8,0"/>
@@ -879,7 +879,7 @@
                                  VerticalAlignment="Center"
                                  Margin="0,0,6,0"/>
                                 <TextBlock x:Name="txtStatus"
-                                       Text="未连接"
+                                       Text="Disconnected"
                                        Foreground="{StaticResource BrushSubtle}"/>
                             </StackPanel>
 
@@ -889,7 +889,7 @@
 
                                 <Button x:Name="btnStopStream"
                                         Style="{StaticResource AccentButtonRed}"
-                                        Content="停止连接"
+                                        Content="Disconnect"
                                         IsEnabled="False"
                                         Padding="20,10"
                                         MinWidth="120"
@@ -906,7 +906,7 @@
 
                                 <Button x:Name="btnRtspRescue"
                                         Style="{StaticResource AccentButtonRed}"
-                                        Content="RTSP救援"
+                                        Content="RTSP Recovery"
                                         Padding="20,10"
                                         MinWidth="130"
                                         Height="36"

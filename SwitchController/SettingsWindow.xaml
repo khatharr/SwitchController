@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SwitchController.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="设置" Height="520" Width="620"
+        Title="Settings" Height="520" Width="620"
         WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
@@ -199,7 +199,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Row="0" LastChildFill="False" Margin="4,0,4,8">
-                    <TextBlock Text="设置" FontSize="20" FontWeight="Bold" Foreground="{StaticResource BrushText}" />
+                    <TextBlock Text="Settings" FontSize="20" FontWeight="Bold" Foreground="{StaticResource BrushText}" />
                     <Button Content="×" Width="36" Height="28" Margin="8,0,0,0"
                             Style="{StaticResource AccentButtonRed}" Click="Close_Click"
                             DockPanel.Dock="Right"/>
@@ -215,75 +215,75 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0" Margin="8">
-                        <TextBlock Text="网络" Style="{StaticResource GroupTitle}"/>
+                        <TextBlock Text="Network" Style="{StaticResource GroupTitle}"/>
                         <StackPanel Orientation="Horizontal" Margin="0,4">
-                            <TextBlock Text="IP 地址" Width="90" Style="{StaticResource FormLabel}"/>
-                            <TextBox x:Name="tbIp" Width="180" Style="{StaticResource TextInput}" ToolTip="例如 192.168.0.123"/>
+                            <TextBlock Text="IP Address" Width="90" Style="{StaticResource FormLabel}"/>
+                            <TextBox x:Name="tbIp" Width="180" Style="{StaticResource TextInput}" ToolTip="e.g. 192.168.0.123"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,6">
-                            <TextBlock Text="端口" Width="90" Style="{StaticResource FormLabel}"/>
-                            <TextBox x:Name="tbPort" Width="120" Style="{StaticResource TextInput}" ToolTip="例如 6000"/>
+                            <TextBlock Text="Port" Width="90" Style="{StaticResource FormLabel}"/>
+                            <TextBox x:Name="tbPort" Width="120" Style="{StaticResource TextInput}" ToolTip="e.g. 6000"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,6">
-                            <TextBlock Text="RTSP端口" Width="90" Style="{StaticResource FormLabel}"/>
-                            <TextBox x:Name="rtspPort" Width="120" Style="{StaticResource TextInput}" ToolTip="例如 6666"/>
+                            <TextBlock Text="RTSP Port" Width="90" Style="{StaticResource FormLabel}"/>
+                            <TextBox x:Name="rtspPort" Width="120" Style="{StaticResource TextInput}" ToolTip="e.g. 6666"/>
                         </StackPanel>
 
                         <Separator Margin="0,10,0,10" Background="{StaticResource BrushStroke}" Height="1"/>
 
-                        <TextBlock Text="画面" Style="{StaticResource GroupTitle}"/>
+                        <TextBlock Text="Display" Style="{StaticResource GroupTitle}"/>
                         <StackPanel Orientation="Horizontal" Margin="0,4">
-                            <TextBlock Text="模式" Width="90" Style="{StaticResource FormLabel}"/>
+                            <TextBlock Text="Mode" Width="90" Style="{StaticResource FormLabel}"/>
                             <ComboBox x:Name="cbStreamMode" Width="180">
-                                <ComboBoxItem Content="持续拉流"/>
-                                <ComboBoxItem Content="操作预览"/>
-                                <ComboBoxItem Content="RTSP播放(需要Sys-DVR打开RTSP模式)"/>
-                                <ComboBoxItem Content="关闭预览"/>
+                                <ComboBoxItem Content="Continuous Capture"/>
+                                <ComboBoxItem Content="Preview on Input"/>
+                                <ComboBoxItem Content="RTSP (SysDVR)" ToolTip="Requires SysDVR RTSP mode"/>
+                                <ComboBoxItem Content="No Preview"/>
                             </ComboBox>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,6">
-                            <TextBlock Text="RTSP缓冲(ms)" Width="90" Style="{StaticResource FormLabel}"/>
-                            <TextBox x:Name="tbCache" Width="120" Style="{StaticResource TextInput}" ToolTip="局域网建议 150~300"/>
+                            <TextBlock Text="Buffer (ms)" Width="90" Style="{StaticResource FormLabel}"/>
+                            <TextBox x:Name="tbCache" Width="120" Style="{StaticResource TextInput}" ToolTip="Recommended on LAN: 150-300 ms"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,6">
-                            <TextBlock Text="预览时长(s)" Width="90" Style="{StaticResource FormLabel}"/>
-                            <TextBox x:Name="tbPreviewSecs" Width="120" Style="{StaticResource TextInput}" ToolTip="预览模式下有效"/>
+                            <TextBlock Text="Preview (s)" Width="90" Style="{StaticResource FormLabel}"/>
+                            <TextBox x:Name="tbPreviewSecs" Width="120" Style="{StaticResource TextInput}" ToolTip="Applies to Preview on Input mode"/>
                         </StackPanel>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Margin="8">
-                        <TextBlock Text="手感" Style="{StaticResource GroupTitle}"/>
+                        <TextBlock Text="Input" Style="{StaticResource GroupTitle}"/>
                         <StackPanel Orientation="Horizontal" Margin="0,4">
-                            <TextBlock Text="死区(px)" Width="90" Style="{StaticResource FormLabel}"/>
-                            <TextBox x:Name="tbDeadZone" Width="120" Style="{StaticResource TextInput}" ToolTip="如 8"/>
+                            <TextBlock Text="Deadzone" Width="90" Style="{StaticResource FormLabel}"/>
+                            <TextBox x:Name="tbDeadZone" Width="120" Style="{StaticResource TextInput}" ToolTip="e.g. 8 pixels"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,6">
-                            <TextBlock Text="节流(ms)" Width="90" Style="{StaticResource FormLabel}"/>
-                            <TextBox x:Name="tbSendInterval" Width="120" Style="{StaticResource TextInput}" ToolTip="如 15~25"/>
+                            <TextBlock Text="Interval" Width="90" Style="{StaticResource FormLabel}"/>
+                            <TextBox x:Name="tbSendInterval" Width="120" Style="{StaticResource TextInput}" ToolTip="e.g. 15-25 ms"/>
                         </StackPanel>
 
                         <Separator Margin="0,10,0,10" Background="{StaticResource BrushStroke}" Height="1"/>
 
-                        <TextBlock Text="其他" Style="{StaticResource GroupTitle}"/>
-                        <!--<CheckBox x:Name="chkAutoConnect" Style="{StaticResource CheckOption}" Content="启动后自动连接" Foreground="{StaticResource BrushText}" />-->
+                        <TextBlock Text="Other" Style="{StaticResource GroupTitle}"/>
+                        <!--<CheckBox x:Name="chkAutoConnect" Style="{StaticResource CheckOption}" Content="Auto-connect on startup" Foreground="{StaticResource BrushText}" />-->
                         <StackPanel Orientation="Horizontal" Margin="0,6">
-                            <TextBlock Text="主题" Width="90" Style="{StaticResource FormLabel}"/>
+                            <TextBlock Text="Theme" Width="90" Style="{StaticResource FormLabel}"/>
                             <ComboBox x:Name="cbTheme" Width="180">
-                                <ComboBoxItem Content="深色 (Dark)"  Tag="Dark"/>
-                                <ComboBoxItem Content="浅色 (Light)" Tag="Light"/>
-                                <ComboBoxItem Content="传说Z-A (限定)" Tag="ZA"/>
+                                <ComboBoxItem Content="Dark"  Tag="Dark"/>
+                                <ComboBoxItem Content="Light" Tag="Light"/>
+                                <ComboBoxItem Content="Legends Z-A" Tag="ZA"/>
                             </ComboBox>
                         </StackPanel>
-                        <CheckBox x:Name="chkAutoScreenOff" Margin="0,10,0,0" Style="{StaticResource CheckOption}" Content="连接后自动息屏（省电模式）" Foreground="{StaticResource BrushText}" />
+                        <CheckBox x:Name="chkAutoScreenOff" Margin="0,10,0,0" Style="{StaticResource CheckOption}" Content="Turn screen off when connected" Foreground="{StaticResource BrushText}" />
                     </StackPanel>
                 </Grid>
 
                 <DockPanel Grid.Row="2" Margin="0,10,0,0">
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" >
-                        <Button Content="恢复默认" Style="{StaticResource BaseButton}" Margin="0,0,8,0" Height="36" Width="60" Click="Reset_Click"/>
-                        <Button Content="取消" Style="{StaticResource BaseButton}" Margin="0,0,8,0" Height="36" Width="50" Click="Cancel_Click"/>
-                        <Button Content="确定" Style="{StaticResource AccentButtonBlue}" 
+                        <Button Content="Reset" Style="{StaticResource BaseButton}" Margin="0,0,8,0" Height="36" Width="60" Click="Reset_Click"/>
+                        <Button Content="Cancel" Style="{StaticResource BaseButton}" Margin="0,0,8,0" Height="36" Width="50" Click="Cancel_Click"/>
+                        <Button Content="OK" Style="{StaticResource AccentButtonBlue}" 
                                         Height="36" Width="50" Click="Ok_Click"/>
                     </StackPanel>
                 </DockPanel>
