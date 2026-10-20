@@ -87,7 +87,7 @@ public partial class MainWindow : Window
         if (port > 0)
             txtPort.Text = port.ToString();
 
-        btnScreenSwitch.Content = autoScreenOff ? "打开屏幕" : "关闭屏幕";
+        btnScreenSwitch.Content = autoScreenOff ? "Turn Screen On" : "Turn Screen Off";
     }
 
     private void SaveSettings()
@@ -439,7 +439,7 @@ public partial class MainWindow : Window
             if (winner != connectTask)
             {
                 // 理论上不会进来
-                throw new TimeoutException("连接等待被取消。");
+                throw new TimeoutException("Connection attempt was canceled.");
             }
 
             // 将 Connect 的异常抛出
@@ -451,9 +451,9 @@ public partial class MainWindow : Window
             // 更新 UI
             Dispatcher.Invoke(() =>
             {
-                txtLog.Text = "Switch | 正在连接...";
+                txtLog.Text = "Switch | Connecting...";
                 ellipseStatus.Fill = Brushes.Green;
-                txtStatus.Text = "已连接";
+                txtStatus.Text = "Connected";
             });
 
             await Task.Delay(300, token).ConfigureAwait(false);
@@ -463,8 +463,8 @@ public partial class MainWindow : Window
             Dispatcher.Invoke(() =>
             {
                 txtLog.Text = id != "0000000000000000"
-                    ? $"Switch | 已连接成功 | {id}"
-                    : "Switch | 已连接成功 | 未启动游戏";
+                    ? $"Switch | Connected | {id}"
+                    : "Switch | Connected | No game running";
             });
             if (Settings.Default.AutoScreenOff)
                 await SetScreen(ScreenState.Off).ConfigureAwait(false);
@@ -486,9 +486,9 @@ public partial class MainWindow : Window
             Dispatcher.Invoke(() =>
             {
                 ellipseStatus.Fill = Brushes.Red;
-                txtStatus.Text = "未连接";
-                MessageBox.Show("连接失败：超过 5 秒未建立连接（超时）");
-                txtLog.Text = "Switch | 连接超时";
+                txtStatus.Text = "Disconnected";
+                MessageBox.Show("Connection timed out after 5 seconds.");
+                txtLog.Text = "Switch | Connection timed out";
             });
         }
         catch (SocketException ex)
@@ -507,18 +507,18 @@ public partial class MainWindow : Window
 
             if (ex.Message.Contains("未能响应") || ex.Message.Contains("主动拒绝"))
             {
-                Dispatcher.Invoke(() => MessageBox.Show($"连接失败：{ex.Message}"));
+                Dispatcher.Invoke(() => MessageBox.Show($"Connection failed: {ex.Message}"));
             }
             else
             {
-                Dispatcher.Invoke(() => MessageBox.Show($"连接失败：{ex.SocketErrorCode} - {ex.Message}"));
+                Dispatcher.Invoke(() => MessageBox.Show($"Connection failed: {ex.SocketErrorCode} - {ex.Message}"));
             }
 
             Dispatcher.Invoke(() =>
             {
                 ellipseStatus.Fill = Brushes.Red;
-                txtStatus.Text = "未连接";
-                txtLog.Text = "Switch | 连接失败";
+                txtStatus.Text = "Disconnected";
+                txtLog.Text = "Switch | Connection failed";
             });
         }
         catch (Exception ex)
@@ -529,9 +529,9 @@ public partial class MainWindow : Window
             Dispatcher.Invoke(() =>
             {
                 ellipseStatus.Fill = Brushes.Red;
-                txtStatus.Text = "未连接";
-                MessageBox.Show($"连接失败：{ex.Message}");
-                txtLog.Text = "Switch | 连接异常";
+                txtStatus.Text = "Disconnected";
+                MessageBox.Show($"Connection failed: {ex.Message}");
+                txtLog.Text = "Switch | Connection error";
             });
         }
         finally
@@ -636,7 +636,7 @@ public partial class MainWindow : Window
 
         if (string.IsNullOrWhiteSpace(url))
         {
-            MessageBox.Show("RTSP地址不能为空！");
+            MessageBox.Show("RTSP address cannot be empty.");
             return;
         }
 
@@ -663,9 +663,9 @@ public partial class MainWindow : Window
                 VlcView.Visibility = Visibility.Collapsed;
                 imgSwitchDisplay.Visibility = Visibility.Visible;
                 ellipseStatus.Fill = Brushes.Yellow;
-                txtStatus.Text = "RTSP 未连接";
+                txtStatus.Text = "RTSP disconnected";
             });
-            MessageBox.Show($"RTSP连接失败：{ex.Message}");
+            MessageBox.Show($"RTSP connection failed: {ex.Message}");
         }
     }
 
@@ -731,7 +731,7 @@ public partial class MainWindow : Window
         {
             Dispatcher.Invoke(() =>
             {
-                txtLog.Text = $"暂未连接switch，请在连接完成后再使用！！";
+                txtLog.Text = $"Switch is not connected. Connect before using the controller.";
             });
         }
     }
@@ -752,7 +752,7 @@ public partial class MainWindow : Window
         {
             Dispatcher.Invoke(() =>
             {
-                txtLog.Text = $"暂未连接switch，请在连接完成后再使用！！";
+                txtLog.Text = $"Switch is not connected. Connect before using the controller.";
             });
         }
     }
@@ -773,7 +773,7 @@ public partial class MainWindow : Window
         {
             Dispatcher.Invoke(() =>
             {
-                txtLog.Text = $"暂未连接switch，请在连接完成后再使用！！";
+                txtLog.Text = $"Switch is not connected. Connect before using the controller.";
             });
         }
     }
@@ -797,7 +797,7 @@ public partial class MainWindow : Window
         {
             Dispatcher.Invoke(() =>
             {
-                txtLog.Text = $"暂未连接switch，请在连接完成后再使用！！";
+                txtLog.Text = $"Switch is not connected. Connect before using the controller.";
             });
         }
     }
@@ -910,7 +910,7 @@ public partial class MainWindow : Window
             txtIpAddress.Text = Settings.Default.SwitchIP;
             txtPort.Text = Settings.Default.SwitchPort.ToString();
 
-            txtLog.Text = "设置已更新。";
+            txtLog.Text = "Settings updated.";
         }
     }
 
@@ -928,9 +928,9 @@ public partial class MainWindow : Window
         StopRtspStream();
         Dispatcher.Invoke(() =>
         {
-            txtLog.Text = "Switch | 已断开连接！！";
+            txtLog.Text = "Switch | Disconnected";
             ellipseStatus.Fill = Brushes.Red;
-            txtStatus.Text = "未连接";
+            txtStatus.Text = "Disconnected";
         });
     }
 
@@ -938,7 +938,7 @@ public partial class MainWindow : Window
     {
         if (!SwitchConnection.Connected || SOUR == null || SOUR.IsCancellationRequested)
         {
-            MessageBox.Show("保存失败，你还未连接 Switch！");
+            MessageBox.Show("Cannot save: Switch is not connected.");
             return;
         }
 
@@ -946,8 +946,8 @@ public partial class MainWindow : Window
         {
             var saveFileDialog = new SaveFileDialog
             {
-                Title = "保存截图",
-                Filter = "PNG 图片|*.png",
+                Title = "Save Screenshot",
+                Filter = "PNG Image|*.png",
                 FileName = "Switch_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".png",
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
             };
@@ -963,7 +963,7 @@ public partial class MainWindow : Window
 
             if (_screenGrab.Length == 0)
             {
-                Dispatcher.Invoke(() => MessageBox.Show("截图数据为空，保存失败。"));
+                Dispatcher.Invoke(() => MessageBox.Show("Cannot save: screenshot data is empty."));
                 return;
             }
 
@@ -972,15 +972,15 @@ public partial class MainWindow : Window
 
             Dispatcher.Invoke(() =>
             {
-                txtLog.Text = "截图已保存到：" + filePath;
+                txtLog.Text = "Screenshot saved to: " + filePath;
             });
         }
         catch (Exception ex)
         {
             Dispatcher.Invoke(() =>
             {
-                MessageBox.Show("截图保存失败：" + ex.Message);
-                txtLog.Text = "截图保存失败。";
+                MessageBox.Show("Failed to save screenshot: " + ex.Message);
+                txtLog.Text = "Failed to save screenshot.";
             });
         }
     }
@@ -992,7 +992,7 @@ public partial class MainWindow : Window
             _rtspStreaming = false;
             VlcView.Visibility = Visibility.Collapsed;
             imgSwitchDisplay.Visibility = Visibility.Visible;
-            btnRtspRescue.Content = "RTSP恢复";
+            btnRtspRescue.Content = "Restore RTSP";
             StartScreenStream(true);
         }
         else
@@ -1000,7 +1000,7 @@ public partial class MainWindow : Window
             _rtspStreaming = true;
             VlcView.Visibility = Visibility.Visible;
             imgSwitchDisplay.Visibility = Visibility.Collapsed;
-            btnRtspRescue.Content = "RTSP救援";
+            btnRtspRescue.Content = "RTSP Recovery";
             StartRtspStream($"rtsp://{txtIpAddress.Text}:{Settings.Default.RtspPort}/");
         }
     }
@@ -1011,13 +1011,13 @@ public partial class MainWindow : Window
             return;
         switch (btn.Content)
         {
-            case "打开屏幕":
+            case "Turn Screen On":
                 await SetScreen(ScreenState.On).ConfigureAwait(false);
-                btn.Content = "关闭屏幕";
+                btn.Content = "Turn Screen Off";
                 break;
-            case "关闭屏幕":
+            case "Turn Screen Off":
                 await SetScreen(ScreenState.Off).ConfigureAwait(false);
-                btn.Content = "打开屏幕";
+                btn.Content = "Turn Screen On";
                 break;
         }
     }
