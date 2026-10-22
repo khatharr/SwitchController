@@ -1,5 +1,5 @@
 # 🕹️ SwitchController  
-> 使用电脑远程控制 Nintendo Switch，就像真实手柄一样操作，并可实时查看 Switch 屏幕画面。  
+> Remotely control a Nintendo Switch from your computer, just as you would with a physical controller, and view the Switch screen in real time.  
 <img width="882" height="412" alt="image" src="https://github.com/user-attachments/assets/1c936579-d829-46fc-af9f-02c5400e2b2a" />
 
 <img width="880" height="411" alt="image" src="https://github.com/user-attachments/assets/b9695559-3e4b-46b9-b3c9-5a22fcff1713" />
@@ -8,92 +8,91 @@
 
 ---
 
-## 📖 项目简介
-**SwitchController** 是一个基于 Sys-BotBase 的远程控制与自动化工具。  
-通过该程序，你可以：
-- 使用电脑直接控制 Switch，模拟真实 Joy-Con 操作；
-- 实时查看 Switch 屏幕画面；
-- 自动化执行任务（如宏操作）；
-- 将控制与显示整合在一个界面中，方便玩家与开发者远程运维Switch。
+## 📖 Project Overview
+**SwitchController** is a remote-control and automation tool based on Sys-BotBase.  
+With this application, you can:
+- Control your Switch directly from a computer by emulating Joy-Con inputs;
+- View the Switch screen in real time;
+- Automate tasks (such as macros);
+- Combine controls and screen viewing in one interface, making remote Switch management convenient for players and developers.
 
 ---
 
-## ⚙️ 主要功能
-- 🎮 模拟 Joy-Con 手柄操作（A/B/X/Y、摇杆、触控等）✅
-- 📺 实时显示 Switch 屏幕画面 ✅
-- 🔁 支持任务脚本（自动化执行）❌
-- 🧩 支持网络连接，控制主机无需实体手柄 ✅
+## ⚙️ Main Features
+- 🎮 Emulate Joy-Con inputs (A/B/X/Y, analog sticks, touch input, etc.) ✅
+- 📺 View the Switch screen in real time ✅
+- 🔁 Task scripting (automation) ❌
+- 🧩 Control the console over a network without a physical controller ✅
 
 ---
 
-## 🧱 基础原理
-本项目依赖于 **Sys-BotBase**，它是一个运行在已破解 Nintendo Switch 上的后台服务，
-允许通过网络接口接收命令（如按键、内存操作等）。
+## 🧱 How It Works
+This project relies on **Sys-BotBase**, a background service that runs on a modded Nintendo Switch
+and accepts commands over a network connection (such as button inputs and memory operations).
 
-> ⚠️ 注意：使用本项目前，Switch 必须运行 `Sys-BotBase`，并确保主机与电脑在同一局域网内。
-
----
-
-## 🖥️ 使用方法
-### 1️⃣ 准备环境
-- 一台已安装 **Sys-BotBase** 的 Nintendo Switch；
-- 一台与 Switch 在同一网络下的电脑；
-- 安装 [.NET 9.0+](https://dotnet.microsoft.com/download/dotnet)；
-- 下载或编译本项目的可执行文件。
-
-### 2️⃣ 启动 Sys-BotBase
-具体方法请前往[sys-botbase](https://github.com/olliz0r/sys-botbase)进行查阅！！
-
-### 3️⃣ 连接并控制
-1. 打开 SwitchController；
-2. 输入 Switch 的 IP 地址，本地端口默认6000；
-3. 点击“开始连接”；
-4. 即可在界面中实时查看 Switch 屏幕画面；
-5. 使用鼠标点击进行操作即可。
+> ⚠️ Note: The Switch must be running `Sys-BotBase`, and the Switch and computer must be on the same local network.
 
 ---
 
-## ⚠️ 注意事项 / 声明
-- 本项目仅用于 **个人研究、学习与自制软件开发**；
-- 请勿用于违反 Nintendo 使用条款或在线服务；
-- 使用本项目所导致的任何设备损坏或账号封禁风险由用户自行承担；
-- 本项目与 Nintendo 无任何关联。
+## 🖥️ How to Use
+### 1️⃣ Prepare Your Setup
+- A Nintendo Switch with **Sys-BotBase** installed;
+- A computer on the same network as the Switch;
+- Install [.NET 9.0+](https://dotnet.microsoft.com/download/dotnet);
+- Download or build this project's executable.
+
+### 2️⃣ Start Sys-BotBase
+For detailed instructions, see [sys-botbase](https://github.com/olliz0r/sys-botbase).
+
+### 3️⃣ Connect and Control
+1. Open SwitchController;
+2. Enter the Switch's IP address. The default port is 6000;
+3. Click "Connect";
+4. The Switch screen can then be viewed in real time within the application;
+5. Use your mouse to interact with the controls.
 
 ---
 
-## ⭐ 支持本项目
-如果这个项目对你有帮助，欢迎：
-- 点亮 Star ⭐ 支持；
-- 提交 issue/PR 改进功能；
-- 分享给其他需要远程控制 Switch 的开发者。
+## ⚠️ Notes / Disclaimer
+- This project is intended for **personal research, learning, and homebrew software development**;
+- Do not use it in ways that violate Nintendo's terms of use or online service rules;
+- Users accept responsibility for any risk of device damage or account bans resulting from use of this project;
+- This project is not affiliated with Nintendo.
 
 ---
 
-> “让控制与自由结合，像真正的手柄一样体验 Switch。”
-
-
-## 🪪 License / 许可声明
-
-本项目 **SwitchController** 基于 [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html) 开源发布。
-
-你可以：
-- ✅ 自由使用、修改、分发本项目的代码；
-- ✅ 在遵守 GPLv3 的前提下，将其用于研究、教学、或其他非商业/商业用途；
-- ⚠️ 但必须在发布衍生作品时 **保持相同许可证（GPLv3）** 并保留版权与声明。
+## ⭐ Support the Project
+If you find this project useful, you're welcome to:
+- Star ⭐ the repository;
+- Submit issues or pull requests to help improve it;
+- Share it with other developers who want to control a Switch remotely.
 
 ---
 
-### 🔗 包含的上游项目
-本项目基于以下开源项目开发：
+> "Bringing control and freedom together, just like using a real controller."
 
-| 依赖项目 | 作者 | 协议 |
+
+## 🪪 License / Licensing Notice
+
+**SwitchController** is released as open-source software under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+
+You may:
+- ✅ Use, modify, and redistribute this project freely;
+- ✅ Use it for research, teaching, and other noncommercial or commercial purposes, subject to GPLv3;
+- ⚠️ When distributing derivative works, **retain the GPLv3 license** and preserve copyright and attribution notices.
+
+---
+
+### 🔗 Included Upstream Projects
+This project builds on the following open-source projects:
+
+| Dependency | Author | License |
 |-----------|------|------|
 | [Sys-BotBase](https://github.com/olliz0r/sys-botbase) | olliz0r | GPL-3.0 |
 | [SysBot.Base](https://github.com/kwsch/SysBot.NET) | kwsch | MIT |
 | SwitchController | ZiYuKing | GPL-3.0 |
 
-由于本项目直接依赖并与 Sys-BotBase (GPLv3) 链接，  
-因此本项目整体遵循 GPLv3 协议。
+Because this project directly depends on and links against Sys-BotBase (GPLv3),  
+the project as a whole is distributed under GPLv3.
 
-📄 **完整许可证文本见：[LICENSE](LICENSE)**
-
+📄 **See [LICENSE](LICENSE) for the full license text.**
